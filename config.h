@@ -11,7 +11,7 @@
 #define TIME_WITH_SYS_TIME 1
 
 /* Define if lex declares yytext as a char * by default, not a char[].  */
-#define YYTEXT_POINTER 1
+/* #undef YYTEXT_POINTER */
 
 /* Version of super-smack */
 #define VERSION "1.1"
@@ -23,13 +23,13 @@
 #define HAVE_MYSQL 1
 
 /* PostgreSQL Support */
-#define HAVE_PGSQL 1
+/* #undef HAVE_PGSQL */
 
 /* Oracle Support */
 /* #undef HAVE_ORACLE */
 
 /* Sample .smack data files */
-#define SMACK_DATADIR "/var/smack-data"
+#define SMACK_DATADIR "/home/bradley/smack-data"
 
 /* Define if you have the gettimeofday function.  */
 #define HAVE_GETTIMEOFDAY 1

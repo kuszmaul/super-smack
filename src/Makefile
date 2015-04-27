@@ -78,23 +78,23 @@ POST_UNINSTALL = :
 CC = gcc
 CPP = gcc -E
 CXX = g++
-DATADIR = /var/smack-data
+DATADIR = /home/bradley/smack-data
 LEX = flex
 LN_S = ln -s
-MAKEINFO = makeinfo
-MYSQL_INCLUDE = -I/usr/local/include/mysql
-MYSQL_LIB = -L/usr/local/lib/mysql -lmysqlclient 
+MAKEINFO = /home/bradley/super-smack/missing makeinfo
+MYSQL_INCLUDE = -I/usr/include/mysql
+MYSQL_LIB = -L/usr/lib64/mysql -lmysqlclient 
 ORACLE_INCLUDE = 
 ORACLE_LIB = 
 PACKAGE = super-smack
-PGSQL_INCLUDE = -I/usr/local/pgsql/include
-PGSQL_LIB = -L/usr/local/pgsql/lib -lpq
+PGSQL_INCLUDE = 
+PGSQL_LIB = 
 SHELL = /bin/sh
-SMACKS_DIR = /usr/share/smacks
+SMACKS_DIR = /home/bradley/smacks
 VERSION = 1.1
 YACC = bison -y
 
-INCLUDES = -I/usr/local/include/mysql -I/usr/local/pgsql/include 
+INCLUDES = -I/usr/include/mysql  
 
 noinst_PROGRAMS = test-dictionary test-client test_tcp_client
 bin_PROGRAMS = super-smack gen-data
@@ -103,11 +103,11 @@ test_dictionary_SOURCES = test-dictionary.cc 	dictionary.cc dictionary.h 	die.cc
 test_tcp_client_SOURCES = test_tcp_client.cc tcp_client.cc tcp_client.h
 test_client_SOURCES =  	test-client.cc 	client.cc client.h 	engines.cc engines.h 	die.cc die.h 	dictionary.cc dictionary.h 	query.cc query.h 	smack.h libsmack.cc 	mysql-client.cc mysql-client.h 	pg-client.cc pg-client.h 	ora-client.cc ora-client.h
 
-test_client_LDADD = -L/usr/local/lib/mysql -lmysqlclient  -L/usr/local/pgsql/lib -lpq 
+test_client_LDADD = -L/usr/lib64/mysql -lmysqlclient   
 
 super_smack_SOURCES =  	super-smack.cc super-smack.h 	client.cc client.h 	engines.cc engines.h 	die.cc die.h         dictionary.cc dictionary.h 	super-smack-yacc.yy         super-smack-yacc.h 	super-smack-lex.ll 	query.cc query.h         parse.cc parse.h 	val.h smack.h libsmack.cc 	mysql-client.cc mysql-client.h 	pg-client.cc pg-client.h 	ora-client.cc ora-client.h 	tcp_client.h tcp_client.cc
 
-super_smack_LDADD = -L/usr/local/lib/mysql -lmysqlclient  -L/usr/local/pgsql/lib -lpq 
+super_smack_LDADD = -L/usr/lib64/mysql -lmysqlclient   
 
 gen_data_SOURCES = gen-data.cc die.cc die.h
 
@@ -125,7 +125,7 @@ PROGRAMS =  $(bin_PROGRAMS) $(noinst_PROGRAMS)
 DEFS = -DHAVE_CONFIG_H -I. -I$(srcdir) -I..
 CPPFLAGS = 
 LDFLAGS = 
-LIBS = -L/usr/local/pgsql/lib -L/usr/local/lib/mysql -lcrypt -lz  
+LIBS = -L/usr/lib64/mysql -lcrypt -lz  
 super_smack_OBJECTS =  super-smack.o client.o engines.o die.o \
 dictionary.o super-smack-yacc.o super-smack-lex.o query.o parse.o \
 libsmack.o mysql-client.o pg-client.o ora-client.o tcp_client.o
@@ -153,7 +153,7 @@ CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS
 CXXLD = $(CXX)
 CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
 LEX_OUTPUT_ROOT = lex.yy
-LEXLIB = -lfl
+LEXLIB = 
 CFLAGS = -g -O2
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)

@@ -4,8 +4,10 @@ client "admin"
  user "root";
  host "localhost";
  db "test";
- pass "";
- socket "/tmp/mysql.sock"; // this only applies to MySQL and is
+ pass "msandbox";
+ socket "/tmp/mysql_sandbox5623.sock";
+// socket "/var/lib/mysql/mysql.sock"; // this only applies to MySQL and is
+// socket "/tmp/mysql.sock"; // this only applies to MySQL and is
 // ignored for PostgreSQL
 }
 
@@ -61,11 +63,13 @@ query "select_by_username"
 // define database client type
 client "smacker1"
 {
- user "test"; // connect as this user
- pass ""; // use this password
+ user "msandbox"; // connect as this user
+ pass "msandbox"; // use this password
  host "localhost"; // connect to this host
  db "test"; // switch to this database
- socket "/tmp/mysql.sock"; // this only applies to MySQL and is
+ socket "/tmp/mysql_sandbox5623.sock";
+// socket "/var/lib/mysql/mysql.sock"; // this only applies to MySQL and is
+// socket "/tmp/mysql.sock"; // this only applies to MySQL and is
 // ignored for PostgreSQL
  query_barrel "2 select_by_username"; // on each round,
 // run select_by_username query 2 times
